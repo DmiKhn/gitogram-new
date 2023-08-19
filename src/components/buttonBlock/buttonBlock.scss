@@ -1,0 +1,25 @@
+button {
+  border: 1px solid #dddddd;
+  padding: 6px 12px;
+}
+
+button:hover {
+  background: #dddddd;
+}
+
+.firstBtn {
+  border-radius: 8px 0 0 8px;
+  border-right: 0;
+}
+
+.secondBtn {
+  border-right: 0;
+}
+
+.thirdBtn {
+  border-right: 0;
+}
+
+.forthBtn {
+  border-radius: 0 8px 8px  0;
+}

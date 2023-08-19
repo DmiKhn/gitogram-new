@@ -1,0 +1,29 @@
+.topmenu {
+  background: #fafafa;
+  display: flex;
+  padding: 8px 16px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.img {
+  width: 32px;
+  border-radius: 16px;
+}
+
+.rightBlock {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  color: #262626;
+  width: 32px;
+}

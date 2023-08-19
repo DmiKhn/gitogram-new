@@ -1,0 +1,37 @@
+[
+  {
+    "id": "0",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "John Doe"
+  },
+  {
+    "id": "1",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "Jack Rich"
+  },
+  {
+    "id": "2",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "Andy Loss"
+  },
+  {
+    "id": "3",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "Martha Doe"
+  },
+  {
+    "id": "4",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "Alex Dare"
+  },
+  {
+    "id": "5",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "Alex Dare"
+  },
+  {
+    "id": "6",
+    "avatar": "https://via.placeholder.com/300/300",
+    "username": "Alex Dare"
+  }
+]
