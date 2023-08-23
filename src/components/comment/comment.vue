@@ -22,3 +22,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .username {
+    font-weight: bold;
+  }
+</style>

@@ -4,4 +4,10 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'mainBlock'
+  }
+</script>
+
 <style lang="scss" src="./mainBlock.scss" scoped></style>

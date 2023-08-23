@@ -1,23 +1,27 @@
 <template>
-  <topmenu />
-  <feeds />
-  <avatar />
-  <feedblock />
-  <feedblock />
-  <feedblock />
-  <feedblock />
+  <div class="topBlock">
+    <topmenu />
+    <stories />
+  </div>
+  <div class="feedBlock">
+    <feeds />
+    <!-- <feedblock />
+    <feedblock />
+    <feedblock /> -->
+  </div>
 </template>
 
 <script>
-import { avatar } from './components/avatar'
-import { feeds } from './pages/feeds'
+// import { avatar } from './components/avatar'
+import { stories } from './pages/stories'
 import { topmenu } from './pages/topmenu'
-import { feedblock } from './pages/feedblock'
+import { feeds } from './pages/feeds'
+// import { sliderItem } from './components/sliderItem'
 
 export default {
   name: 'App',
   components: {
-    feeds, topmenu, feedblock, avatar
+    stories, topmenu, feeds
   }
 }
 </script>

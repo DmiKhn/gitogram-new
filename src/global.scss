@@ -3,7 +3,7 @@ body, html {
 }
 
 body {
-  background: #fafafa;
+  background: #fff;
   font-family: 'Open Sans', sans-serif;
   color: #262662;
   font-size: 14px;
@@ -50,6 +50,14 @@ button {
   overflow: hidden;
   min-height: 100%;
   position: relative;
+}
+
+.topBlock {
+  background: #fafafa;
+}
+
+.feedBlock {
+  background: #fff;
 }
 
 .x-container {

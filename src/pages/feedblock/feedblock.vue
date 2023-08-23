@@ -6,7 +6,8 @@
       </div>
       <div class="userNickname">John Doe</div>
     </div>
-    <mainBlock>
+    <feed />
+    <!-- <mainBlock>
       <template #mainInfo>
         <h1>Vue.js</h1>
         <p class="description">
@@ -17,21 +18,20 @@
     </mainBlock>
     <div class="commentToggler">
       <feed />
-    </div>
-    <div class="dateInfo">15 MAY</div>
+    </div> -->
   </div>
 </template>
 
 <script>
   import { feed } from '../../components/feed'
-  import { buttonBlock } from '../../components/buttonBlock'
-  import { mainBlock } from '../../components/mainBlock'
-  import stories from '../../pages/feeds/data.json'
+  // import { buttonBlock } from '../../components/buttonBlock'
+  // import { mainBlock } from '../../components/mainBlock'
+  import stories from '../../pages/stories/data.json'
 
   export default {
     name: 'feed-item',
     components: {
-      feed, buttonBlock, mainBlock
+      feed
     },
     data () {
       return {

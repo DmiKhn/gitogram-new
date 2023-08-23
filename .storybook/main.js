@@ -13,5 +13,16 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  webpackFinal: config => {
+    config.module.rules.push({
+      test: /.scss$/i,
+      use: [
+        "style-loader",
+        "css-loader",
+        "sass-loader"
+      ]
+    })
+    return config;
+  }
 };
 export default config;

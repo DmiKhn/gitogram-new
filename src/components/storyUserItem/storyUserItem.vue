@@ -9,6 +9,7 @@
 
 <script>
   export default {
+    name: 'storyItem',
     props: {
       avatar: {
         type: String,

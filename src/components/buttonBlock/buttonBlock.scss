@@ -7,9 +7,20 @@ button:hover {
   background: #dddddd;
 }
 
+.buttonBlock {
+  display: flex;
+}
+
 .firstBtn {
+  display: flex;
+  align-items: center;
   border-radius: 8px 0 0 8px;
   border-right: 0;
+}
+
+.starIcon {
+  width: 16px;
+  margin-right: 6px;
 }
 
 .secondBtn {
@@ -17,7 +28,14 @@ button:hover {
 }
 
 .thirdBtn {
+  display: flex;
+  align-items: center;
   border-right: 0;
+}
+
+.forkIcon {
+  width: 14px;
+  margin-right: 6px;
 }
 
 .forthBtn {

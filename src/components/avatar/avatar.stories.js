@@ -1,12 +1,13 @@
 import avatar from './avatar.vue';
 
 export default {
-  title: 'avatar',
-  component: { avatar }
+  title: 'Avatar',
+  components: { avatar }
 };
 
 export const defaultView = () => ({
-  component: { avatar },
+  // name: "Стандартный вид",
+  components: { avatar },
   template: `
     <avatar
       avatarUrl="https://via.placeholder.com/300/300"
@@ -15,6 +16,6 @@ export const defaultView = () => ({
   `
 });
 
-defaultView.story = {
-  name: 'Стандартный вид'
-}
+// defaultView.story = {
+//   name: 'Стандартный вид'
+// }

@@ -1,38 +1,48 @@
 <template>
-  <div class="topline">
-    <topline>
-      <template #content>
-        <ul class="stories">
-          <li class="stories-item" v-for="story in stories" :key="story.id">
-            <storyUserItem
-              :avatar="story.avatar"
-              :username="story.username"
-              @onPress="handlePress(story.id)"
-            />
-          </li>
-        </ul>
-      </template>
-    </topline>
+  <div class="x-container">
+    <ul class="list">
+      <li class="item" v-for="item in items" :key="item.id">
+        <feed
+          v-bind="getFeedData(item)"
+          :feed="item"
+        />
+      </li>
+    </ul>
+    <pre>{{ items }}</pre>
   </div>
 </template>
 
 <script>
-  import { topline } from '../../components/topline'
-  import { storyUserItem } from '../../components/storyUserItem'
-  import stories from './data.json'
+  import * as api from '../../api'
+  import { feed } from '../../components/feed'
 
   export default {
-    name: 'feeds',
-    components: {
-      topline,
-      storyUserItem
-    },
+    name: 'Feeds',
+    components: { feed },
     data () {
       return {
-        stories
+        items: []
+      }
+    },
+    methods: {
+      getFeedData (item) {
+        return {
+          title: item.name,
+          description: item.description,
+          username: item.owner.login,
+          stars: item.stargazers_count
+        }
+      }
+    },
+    async created () {
+      try {
+        const { data } = api.trendings.getTrendings()
+        this.items = data.items
+      } catch (error) {
+        console.log(error)
       }
     }
   }
 </script>
 
-<style lang="scss" scoped src="./feeds.scss"></style>
+<style lang="scss" src="./feeds.scss" scoped></style>

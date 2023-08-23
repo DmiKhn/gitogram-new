@@ -11,6 +11,7 @@
 import { icon } from '../../icons'
 
 export default {
+  name: 'Toggler',
   components: {
     icon
   },
