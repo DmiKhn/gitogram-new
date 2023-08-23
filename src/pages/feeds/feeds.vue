@@ -36,7 +36,7 @@
     },
     async created () {
       try {
-        const { data } = api.trendings.getTrendings()
+        const { data } = await api.trendings.getTrendings()
         this.items = data.items
       } catch (error) {
         console.log(error)
