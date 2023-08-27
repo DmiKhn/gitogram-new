@@ -1,21 +1,20 @@
 <template>
+  <RouterView />
   <div class="topBlock">
     <topmenu />
     <stories />
   </div>
   <div class="feedBlock">
+    <!-- <sliderItem /> -->
     <feeds />
-    <!-- <feedblock />
-    <feedblock />
-    <feedblock /> -->
   </div>
 </template>
 
 <script>
-// import { avatar } from './components/avatar'
 import { stories } from './pages/stories'
 import { topmenu } from './pages/topmenu'
 import { feeds } from './pages/feeds'
+// import { spinner } from './components/spinner'
 // import { sliderItem } from './components/sliderItem'
 
 export default {

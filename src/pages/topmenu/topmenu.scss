@@ -2,6 +2,7 @@
   background: #fafafa;
   display: flex;
   padding: 16px 8px 0px 8px;
+  align-items: center;
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
@@ -13,8 +14,7 @@
 }
 
 .rightBlock {
-  font-size: 24px;
-  font-weight: bold;
+  height: 36px;
 }
 
 .leftBlock {
@@ -23,7 +23,11 @@
   gap: 8px;
 }
 
-.icon {
+.icon-right {
+  width: 174px;
+}
+
+.icon-left {
   color: #262626;
   width: 32px;
 }

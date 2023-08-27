@@ -3,7 +3,7 @@
     <div class="avatar">
       <img :src="avatar" class="img" alt="username avatar">
     </div>
-    <div class="username">{{ username }}</div>
+    <div class="username">{{ username || "Peter" }}</div>
   </div>
 </template>
 
