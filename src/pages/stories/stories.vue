@@ -3,11 +3,15 @@
     <topline>
       <template #content>
         <ul class="stories">
-          <li class="stories-item" v-for="story in stories" :key="story.id">
+          <li
+            class="stories-item"
+            v-for="story in stories"
+            :key="story.id"
+          >
             <storyUserItem
-              :avatar="story.avatar"
-              :username="story.username"
-              @onPress="handlePress(story.id)"
+              :avatar="owner.avater_url"
+              :username="name"
+              @onPress="$router.push({name: 'stories', params: {initialSlide: id}})"
             />
           </li>
         </ul>
@@ -21,6 +25,7 @@
   import { storyUserItem } from '../../components/storyUserItem'
 
   import stories from './data.json'
+  // import router from '../../router'
 
   export default {
     name: 'stories',
@@ -32,6 +37,11 @@
       return {
         stories
         // items: []
+      }
+    },
+    methods: {
+      handlePress (id) {
+        console.log(id)
       }
     }
   }

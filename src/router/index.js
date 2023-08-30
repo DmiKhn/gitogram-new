@@ -1,20 +1,21 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '@/App.vue'
-import Stories from '@/pages/storiesPage/storiesPage.vue'
-import NotFound from '@/components/notFound/notFound.vue'
+
+import stories from '@/pages/storiesPage/storiesPage.vue'
+import notFound from '@/components/notFound/notFound.vue'
+import { feeds } from '@/pages/feeds'
 
 const routes = [
   {
     path: '/',
-    component: Home
+    component: feeds
   },
   {
     path: '/stories',
-    component: Stories
+    component: stories
   },
   {
     path: '/:pathMath(.*)',
-    component: NotFound
+    component: notFound
   }
 ]
 

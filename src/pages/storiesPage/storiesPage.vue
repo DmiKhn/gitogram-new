@@ -11,7 +11,7 @@
       </div>
     </header>
     <div class="content">
-      <storiesSlider />
+      <storiesSlider :initialSlide="Number($route.params.initialSlide)"/>
     </div>
   </div>
 </template>
@@ -28,3 +28,36 @@
     }
   }
 </script>
+
+<style scoped>
+  .wrapper {
+    background-color: black;
+  }
+  .x-container {
+    height: 100px;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header {
+    margin-bottom: 32px;
+  }
+
+  .logo {
+    width: 174px;
+    margin: 16px 8px 0px 8px;
+    color: white;
+  }
+
+  .close-btn {
+    color: white;
+    margin: 16px 8px 0px 8px;
+    width: 24px;
+  }
+
+  .content {
+    min-height: 500px;
+  }
+</style>

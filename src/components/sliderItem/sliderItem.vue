@@ -1,7 +1,7 @@
 <template>
   <div class="story-post-wrapper">
     <div class="story-post-item" :class="{ active }">
-      <progressBar class="progress-bar" :active="active" />
+      <progressBar class="progress-bar" :active="active" @onFinish="$emit('onProgressFinish')" />
       <div class="avatar-container">
         <avatar />
       </div>
@@ -10,11 +10,11 @@
           <spinner />
         </div>
         <div class="info" v-else>
-          <!-- <div
+          <div
             v-if="data.content?.length"
             class="content-text"
             v-html="data.content"
-          ></div> -->
+          ></div>
           <placeholder />
         </div>
       </div>
@@ -54,7 +54,9 @@
       spinner,
       placeholder,
       icon
-    }
+    },
+    emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
+    props: {}
   }
 </script>
 
