@@ -4,16 +4,16 @@
       <div class="starIcon">
         <icon name="star" />
       </div>
-      {{ firstB || "Star" }}
+      Star
     </button>
-    <button class="secondBtn">{{ secondB || "156k" }}</button>
+    <button class="secondBtn">{{ likesCount }}</button>
     <button class="thirdBtn">
       <div class="forkIcon">
         <icon name="fork" />
       </div>
-      {{ thirdB || "Fork" }}
+      Fork
     </button>
-    <button class="forthBtn">{{ forthB || "4" }}</button>
+    <button class="forthBtn">{{ forksCount }}</button>
   </div>
 </template>
 
@@ -26,10 +26,12 @@
       icon
     },
     props: {
-      firstB: String,
-      secondB: String,
-      thirdB: String,
-      fourthB: String
+      likesCount: {
+        type: Number
+      },
+      forksCount: {
+        type: Number
+      }
     }
   }
 </script>

@@ -1,13 +1,14 @@
 <template>
   <h2> {{ feed.username }}</h2>
+  <avatar :username="feed.owner.login" :avatar="feed.owner.avatar_url"/>
   <div class="c-feed">
     <mainBlock>
       <template #mainInfo>
-        <h1> {{ "Vue.js" || feed.title }}</h1>
-        <p class="description" v-if="description">
-          {{ "description text here" || feed.description }}
+        <h1> {{ feed.name }}</h1>
+        <p class="description" v-if="feed.description">
+          {{ feed.description }}
         </p>
-        <buttonBlock/>
+        <buttonBlock :likesCount="feed.stargazers_count" :forksCount="feed.forks_count"/>
       </template>
     </mainBlock>
     <!-- <h3>stars: {{ stars }}</h3> -->
@@ -28,21 +29,22 @@
   import { mainBlock } from '../../components/mainBlock'
   import { toggler } from '../toggler'
   import { comment } from '../comment'
+  import { avatar } from '../avatar'
 
   export default {
     name: 'Feed',
     props: {
-      feed: Object
-      // title: String,
-      // username: String,
-      // stars: String,
-      // description: String
+      feed: {
+        type: Object,
+        required: true
+      }
     },
     components: {
       toggler,
       comment,
       mainBlock,
-      buttonBlock
+      buttonBlock,
+      avatar
     },
     data () {
       return {

@@ -11,9 +11,9 @@
         </div>
         <div class="info" v-else>
           <div
-            v-if="data.content?.length"
+            v-if="data?.content?.length"
             class="content-text"
-            v-html="data.content"
+            v-html="data?.content"
           ></div>
           <placeholder />
         </div>
@@ -73,7 +73,7 @@
     border-radius: 12px;
     width: 370px;
     height: 100%;
-    box-shadow: 0px 0px 8px 8px #f1f1f1;
+    /* box-shadow: 0px 0px 8px 8px #f1f1f1; */
   }
   .progress-bar {
     margin-top: 12px;

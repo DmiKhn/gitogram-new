@@ -29,12 +29,6 @@
     name: 'headline',
     components: {
       icon
-    },
-    props: {
-      avatar: {
-        type: String,
-        required: true
-      }
     }
   }
 </script>

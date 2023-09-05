@@ -1,9 +1,9 @@
 <template>
   <div class="avatarBlock">
     <div class="avatar">
-      <img :src="avatar" class="img" alt="username avatar">
+      <img :src="avatar" class="img" :alt="username">
     </div>
-    <div class="username">{{ username || "Peter" }}</div>
+    <div class="username">{{ username }}</div>
   </div>
 </template>
 

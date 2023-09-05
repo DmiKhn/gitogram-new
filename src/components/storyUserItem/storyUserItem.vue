@@ -1,10 +1,10 @@
 <template>
-  <button class="c-story-user-item" @click="$emit('onPress')">
+  <router-link to="#" class="c-story-user-item" @click="$emit('onPress')">
     <div class="avatar">
       <img :src="avatar" class="img" alt="username avatar">
     </div>
     <div class="username">{{ username }}</div>
-  </button>
+  </router-link>
 </template>
 
 <script>

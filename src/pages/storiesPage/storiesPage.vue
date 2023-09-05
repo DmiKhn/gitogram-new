@@ -2,10 +2,10 @@
   <div class="wrapper">
     <header class="header">
       <div class="x-container">
-        <button class="logo" @click="$router.push()">
+        <button class="logo" @click="$router.push('/')">
           <icon name="logo"/>
         </button>
-        <button class="close-btn" @click="$router.push()">
+        <button class="close-btn" @click="$router.push('/')">
           <icon name="close"/>
         </button>
       </div>
@@ -21,7 +21,7 @@
   import { storiesSlider } from '../storiesSlider'
 
   export default {
-    name: 'Stories Page',
+    name: 'storiesPage',
     components: {
       icon,
       storiesSlider

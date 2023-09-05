@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import stories from '@/pages/storiesPage/storiesPage.vue'
+import storiesPage from '@/pages/storiesPage/storiesPage.vue'
 import notFound from '@/components/notFound/notFound.vue'
 import { feeds } from '@/pages/feeds'
 
@@ -10,8 +10,9 @@ const routes = [
     component: feeds
   },
   {
-    path: '/stories',
-    component: stories
+    path: '/stories/:initialSlide',
+    component: storiesPage,
+    name: 'stories'
   },
   {
     path: '/:pathMath(.*)',

@@ -3,7 +3,7 @@
     <div class="stories-container">
       <ul class="stories">
         <li class="stories-item"
-          v-for="(trending) in trendings"
+          v-for="trending in trendings"
           :key="trending.id"
         >
           <sliderItem
@@ -23,16 +23,19 @@
 
 <script>
   import { sliderItem } from '../../components/sliderItem'
-  import { mapState, mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
-    name: 'Stories Slider',
+    name: 'storiesSlider',
     components: {
       sliderItem
     },
     props: {
       initialSlide: {
         type: Number
+      },
+      trendings: {
+        type: Object
       }
     },
     data () {
@@ -44,8 +47,8 @@
       }
     },
     computed: {
-      ...mapState({
-        trendings: state => state.trendings.data
+      ...mapGetters({
+        stories: 'trendings/allState'
       }),
       activeBtns () {
         if (this.btnsShown === false) return []
@@ -70,20 +73,24 @@
           username: obj.owner?.login,
           content: obj.readme
         }
+      },
+      moveSlider (slideNdx) {
+        const { slider, item } = this.$refs
+        const slideWidth = parseInt(
+          getComputedStyle(item).getPropertyValue('width'),
+          10
+        )
+
+        this.slideNdx = slideNdx
+        this.sliderPosition = -(slideWidth * slideNdx)
+
+        slider.style.transform = `translate(${this.sliderPosition})`
+      },
+      handleSlide (slideNdx) {
+        this.moveSlider(slideNdx)
       }
     },
-    moveSlider (slideNdx) {
-      const { slider, item } = this.$refs
-      const slideWidth = parseInt(
-        getComputedStyle(item).getPropertyValue('width'),
-        10
-      )
 
-      this.slideNdx = slideNdx
-      this.sliderPosition = -(slideWidth * slideNdx)
-
-      slider.style.transform = `translate(${this.sliderPosition})`
-    },
     async loadReadme () {
       this.loading = true
       this.btnsShown = false
@@ -98,17 +105,17 @@
       }
       await this.fetchReadmeForActiveSlide()
     },
-    handleSlide (slideNdx) {
-      this.moveSlider(slideNdx)
-    },
     async mounted () {
+      console.log(this.trendings)
+      if (!this.trendings && this.trendings?.length === 0) {
+        await this.fetchTrendings()
+      }
       if (this.initialSlide) {
         const ndx = this.trendings.findIndex(item => item.id === this.initialSlide)
-        await this.handleSlide(ndx)
+        this.handleSlide(ndx)
       }
-
-      await this.fetchTrendings()
-      await this.loadReadme()
+      // await this.fetchTrendings()
+      // await this.loadReadme()
     }
   }
 </script>

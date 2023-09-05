@@ -9,9 +9,9 @@
             :key="story.id"
           >
             <storyUserItem
-              :avatar="owner.avater_url"
-              :username="name"
-              @onPress="$router.push({name: 'stories', params: {initialSlide: id}})"
+              :avatar="story.owner.avatar_url"
+              :username="story.owner.login"
+              @onPress="$router.push({name: 'stories', params: {initialSlide: story.id}})"
             />
           </li>
         </ul>
@@ -23,9 +23,7 @@
 <script>
   import { topline } from '../../components/topline'
   import { storyUserItem } from '../../components/storyUserItem'
-
-  import stories from './data.json'
-  // import router from '../../router'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'stories',
@@ -33,11 +31,10 @@
       topline,
       storyUserItem
     },
-    data () {
-      return {
-        stories
-        // items: []
-      }
+    computed: {
+      ...mapGetters({
+        stories: 'trendings/allState'
+      })
     },
     methods: {
       handlePress (id) {
