@@ -33,10 +33,10 @@
     props: {
       initialSlide: {
         type: Number
-      },
-      trendings: {
-        type: Object
       }
+      // trendings: {
+      //   type: Object
+      // }
     },
     data () {
       return {
@@ -48,7 +48,7 @@
     },
     computed: {
       ...mapGetters({
-        stories: 'trendings/allState'
+        trendings: 'trendings/allState'
       }),
       activeBtns () {
         if (this.btnsShown === false) return []
