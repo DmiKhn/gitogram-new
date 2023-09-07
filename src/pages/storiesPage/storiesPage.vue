@@ -58,6 +58,9 @@
   }
 
   .content {
+    display: flex;
     min-height: 500px;
+    width: 1000px;
+    align-items: center;
   }
 </style>

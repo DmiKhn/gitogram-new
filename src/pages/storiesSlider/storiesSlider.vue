@@ -1,8 +1,8 @@
 <template>
   <div class="c-stories-slider">
     <div class="stories-container">
-      <ul class="stories">
-        <li class="stories-item"
+      <ul ref="slider" class="stories">
+        <li ref="item" class="stories-item"
           v-for="trending in trendings"
           :key="trending.id"
         >
@@ -77,9 +77,11 @@
       moveSlider (slideNdx) {
         const { slider, item } = this.$refs
         const slideWidth = parseInt(
-          getComputedStyle(item).getPropertyValue('width'),
+          getComputedStyle(item[slideNdx]).getPropertyValue('width'),
           10
         )
+
+        console.log(item)
 
         this.slideNdx = slideNdx
         this.sliderPosition = -(slideWidth * slideNdx)
@@ -107,7 +109,7 @@
     },
     async mounted () {
       console.log(this.trendings)
-      if (!this.trendings && this.trendings?.length === 0) {
+      if (!this.trendings || this.trendings?.length === 0) {
         await this.fetchTrendings()
       }
       if (this.initialSlide) {

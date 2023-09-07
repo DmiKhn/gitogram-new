@@ -56,7 +56,23 @@
       icon
     },
     emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
-    props: {}
+    props: {
+      avatar: {
+        type: Object
+      },
+      username: {
+        type: String
+      },
+      active: {
+        type: Boolean
+      },
+      loading: {
+        type: Boolean
+      },
+      data: {
+        type: Object
+      }
+    }
   }
 </script>
 
