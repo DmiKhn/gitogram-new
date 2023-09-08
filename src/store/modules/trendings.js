@@ -19,7 +19,7 @@ export const trendings = {
     }
   },
   getters: {
-    getRepoById: (state) => (id) => state.data.find((item) => item.id),
+    getRepoById: (state) => (id) => state.data.trendings.find((item) => item.id),
     allState: (state) => state.data.trendings
   },
   actions: {
@@ -34,8 +34,8 @@ export const trendings = {
         throw e
       }
     },
-    async fetchReadme ({ commit }, { id, owner, repo }) {
-      const curRepo = this.getRepoById(id)
+    async fetchReadme ({ getters }, { commit }, { id, owner, repo }) {
+      const curRepo = getters.getRepoById(id)
       if (curRepo.readme !== undefined) return
       try {
         const { data } = await api.readme.getReadme({ owner, repo })

@@ -40,6 +40,7 @@
     },
     data () {
       return {
+        ndx: 0,
         slideNdx: 0,
         sliderPosition: 0,
         loading: false,
@@ -90,22 +91,21 @@
       },
       handleSlide (slideNdx) {
         this.moveSlider(slideNdx)
-      }
-    },
-
-    async loadReadme () {
-      this.loading = true
-      this.btnsShown = false
-      try {
+      },
+      async loadReadme () {
+        this.loading = true
+        this.btnsShown = false
+        try {
+          await this.fetchReadmeForActiveSlide()
+        } catch (e) {
+          console.log(e)
+          throw e
+        } finally {
+          this.loading = false
+          this.btnsShown = true
+        }
         await this.fetchReadmeForActiveSlide()
-      } catch (e) {
-        console.log(e)
-        throw e
-      } finally {
-        this.loading = false
-        this.btnsShown = true
       }
-      await this.fetchReadmeForActiveSlide()
     },
     async mounted () {
       console.log(this.trendings)
@@ -117,7 +117,7 @@
         this.handleSlide(ndx)
       }
       // await this.fetchTrendings()
-      // await this.loadReadme()
+      await this.loadReadme()
     }
   }
 </script>
