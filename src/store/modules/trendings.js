@@ -10,7 +10,7 @@ export const trendings = {
       state.data = trendings
     },
     SET_README: (state, payload) => {
-      state.data = state.data.map(repo => {
+      state.data.trendings = state.data.trendings.map(repo => {
         if (payload.id === repo.id) {
           repo.readme = payload.content
         }

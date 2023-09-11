@@ -78,7 +78,7 @@
       moveSlider (slideNdx) {
         const { slider, item } = this.$refs
         const slideWidth = parseInt(
-          getComputedStyle(item[slideNdx]).getPropertyValue('width'),
+          getComputedStyle(item[0]).getPropertyValue('width'),
           10
         )
 
