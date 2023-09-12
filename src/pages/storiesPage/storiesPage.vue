@@ -34,15 +34,14 @@
     background-color: black;
   }
   .x-container {
-    height: 100px;
-    max-width: 1200px;
     display: flex;
+    height: 100%;
     align-items: center;
     justify-content: space-between;
   }
 
   .header {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 
   .logo {
@@ -59,8 +58,8 @@
 
   .content {
     display: flex;
-    min-height: 500px;
-    width: 1000px;
+    min-height: 93vh;
+    /* width: 1000px; */
     align-items: center;
   }
 </style>

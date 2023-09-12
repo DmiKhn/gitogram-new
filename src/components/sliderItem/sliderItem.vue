@@ -9,13 +9,13 @@
         <div class="loader" v-if="loading">
           <spinner />
         </div>
-        <div class="info" v-else>
+        <div class="info">
           <div
             v-if="data?.content?.length"
             class="content-text"
             v-html="data?.content"
           ></div>
-          <placeholder />
+          <placeholder v-else/>
         </div>
       </div>
       <div class="button-block">
@@ -23,12 +23,12 @@
       </div>
     </div>
     <template v-if="active">
-      <button class="btn btn-prev">
+      <button class="btn btn-prev" v-if="btnsShown.includes('prev')" @click="$emit('onPrevSlide')">
         <span class="icon">
           <icon name="arrowR" />
         </span>
       </button>
-      <button class="btn btn-next">
+      <button class="btn btn-next" v-if="btnsShown.includes('next')" @click="$emit('onNextSlide')">
         <span class="icon">
           <icon name="arrowR" />
         </span>
@@ -58,7 +58,7 @@
     emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
     props: {
       avatar: {
-        type: Object
+        type: String
       },
       username: {
         type: String
@@ -70,7 +70,15 @@
         type: Boolean
       },
       data: {
-        type: Object
+        type: Object,
+        required: true
+      },
+      btnsShown: {
+        type: Array,
+        default: () => ['next', 'prev'],
+        validator (value) {
+          return value.every(item => item === 'next' || item === 'prev')
+        }
       }
     }
   }
@@ -79,17 +87,30 @@
 <style scoped>
   .story-post-wrapper {
     width: 375px;
+    margin: 0px 40px;
     position: relative;
   }
   .story-post-item {
     display: flex;
+    transform: scale(0.8);
+    transition: 0.4s;
     flex-direction: column;
     align-content: space-between;
     background: #fff;
     border-radius: 12px;
     width: 370px;
     height: 100%;
-    /* box-shadow: 0px 0px 8px 8px #f1f1f1; */
+
+    ::active {
+      display: flex;
+      transition: 0.4s;
+      flex-direction: column;
+      align-content: space-between;
+      background: #fff;
+      border-radius: 12px;
+      width: 370px;
+      height: 100%;
+    }
   }
   .progress-bar {
     margin-top: 12px;
@@ -98,6 +119,7 @@
   }
   .content-wrapper {
     position: relative;
+    overflow: auto;
     height: 490px;
     padding: 16px;
     box-shadow: inset 0px -24px 24px -24px  rgb(218, 217, 217);
@@ -138,5 +160,18 @@
     left: -24px;
     top: 50%;
     position: absolute;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    /* height: 1px; */
+    background-color: #fff
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 35px;
+    background-color: #afafaf;
+    border-radius: 3px;
   }
 </style>

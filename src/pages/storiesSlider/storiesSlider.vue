@@ -33,10 +33,16 @@
     props: {
       initialSlide: {
         type: Number
+      },
+      avatar: {
+        type: String
+      },
+      username: {
+        type: String
+      },
+      active: {
+        type: Boolean
       }
-      // trendings: {
-      //   type: Object
-      // }
     },
     data () {
       return {
@@ -82,7 +88,7 @@
           10
         )
 
-        console.log(item)
+        // console.log(item)
 
         this.slideNdx = slideNdx
         this.sliderPosition = -(slideWidth * slideNdx)
@@ -108,7 +114,7 @@
       }
     },
     async mounted () {
-      console.log(this.trendings)
+      // console.log(this.trendings)
       if (!this.trendings || this.trendings?.length === 0) {
         await this.fetchTrendings()
       }
@@ -121,3 +127,21 @@
     }
   }
 </script>
+
+<style scoped>
+  .stories-container {
+    margin: 0;
+    height: 660px;
+    position: relative;
+  }
+  .stories {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 25vh;
+  }
+
+  /* .stories-item {
+    margin-left: -188px;
+  } */
+</style>

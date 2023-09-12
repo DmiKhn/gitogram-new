@@ -34,7 +34,7 @@ export const trendings = {
         throw e
       }
     },
-    async fetchReadme ({ getters }, { commit }, { id, owner, repo }) {
+    async fetchReadme ({ getters, commit }, { id, owner, repo }) {
       const curRepo = getters.getRepoById(id)
       if (curRepo.readme !== undefined) return
       try {
