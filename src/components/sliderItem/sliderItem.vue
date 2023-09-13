@@ -1,9 +1,9 @@
 <template>
   <div class="story-post-wrapper">
-    <div class="story-post-item" :class="{ active }">
+    <div class="story-post-item" >
       <progressBar class="progress-bar" :active="active" @onFinish="$emit('onProgressFinish')" />
       <div class="avatar-container">
-        <avatar />
+        <avatar :avatar="data.userAvatar" :username="data.username"/>
       </div>
       <div class="content-wrapper">
         <div class="loader" v-if="loading">
@@ -64,7 +64,8 @@
         type: String
       },
       active: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       loading: {
         type: Boolean
@@ -92,7 +93,7 @@
   }
   .story-post-item {
     display: flex;
-    transform: scale(0.8);
+    /* transform: scale(0.8); */
     transition: 0.4s;
     flex-direction: column;
     align-content: space-between;
@@ -101,7 +102,7 @@
     width: 370px;
     height: 100%;
 
-    ::active {
+    /* ::active {
       display: flex;
       transition: 0.4s;
       flex-direction: column;
@@ -110,7 +111,7 @@
       border-radius: 12px;
       width: 370px;
       height: 100%;
-    }
+    } */
   }
   .progress-bar {
     margin-top: 12px;

@@ -3,7 +3,7 @@
     <div class="stories-container">
       <ul ref="slider" class="stories">
         <li ref="item" class="stories-item"
-          v-for="trending in trendings"
+          v-for="(trending, ndx) in trendings"
           :key="trending.id"
         >
           <sliderItem
@@ -34,19 +34,14 @@
       initialSlide: {
         type: Number
       },
-      avatar: {
-        type: String
-      },
-      username: {
-        type: String
-      },
       active: {
-        type: Boolean
+        type: Boolean,
+        default: false
       }
     },
     data () {
       return {
-        ndx: 0,
+        // ndx: 0,
         slideNdx: 0,
         sliderPosition: 0,
         loading: false,
@@ -93,7 +88,11 @@
         this.slideNdx = slideNdx
         this.sliderPosition = -(slideWidth * slideNdx)
 
-        slider.style.transform = `translate(${this.sliderPosition})`
+        console.log(slider.children[slideNdx])
+
+        slider.style.transform = `translateX(${this.sliderPosition}px)`
+        slider.style.transition = '.4s'
+        // slider.style.scale = 'null'
       },
       handleSlide (slideNdx) {
         this.moveSlider(slideNdx)
