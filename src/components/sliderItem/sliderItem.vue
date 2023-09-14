@@ -1,7 +1,7 @@
 <template>
   <div class="story-post-wrapper">
     <div class="story-post-item" >
-      <progressBar class="progress-bar" :active="active" @onFinish="$emit('onProgressFinish')" />
+      <progressBar class="progress-bar" v-if="active" :active="active" @onFinish="$emit('onProgressFinish')" />
       <div class="avatar-container">
         <avatar :avatar="data.userAvatar" :username="data.username"/>
       </div>
@@ -102,7 +102,7 @@
     width: 370px;
     height: 100%;
 
-    /* ::active {
+    ::active {
       display: flex;
       transition: 0.4s;
       flex-direction: column;
@@ -111,7 +111,7 @@
       border-radius: 12px;
       width: 370px;
       height: 100%;
-    } */
+    }
   }
   .progress-bar {
     margin-top: 12px;

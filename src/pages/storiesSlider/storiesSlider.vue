@@ -79,7 +79,7 @@
       moveSlider (slideNdx) {
         const { slider, item } = this.$refs
         const slideWidth = parseInt(
-          getComputedStyle(item[0]).getPropertyValue('width'),
+          getComputedStyle(item[slideNdx]).getPropertyValue('width'),
           10
         )
 
@@ -88,14 +88,15 @@
         this.slideNdx = slideNdx
         this.sliderPosition = -(slideWidth * slideNdx)
 
-        console.log(slider.children[slideNdx])
+        // console.log(slider.children[slideNdx])
 
         slider.style.transform = `translateX(${this.sliderPosition}px)`
         slider.style.transition = '.4s'
         // slider.style.scale = 'null'
       },
-      handleSlide (slideNdx) {
+      async handleSlide (slideNdx) {
         this.moveSlider(slideNdx)
+        await this.loadReadme()
       },
       async loadReadme () {
         this.loading = true
