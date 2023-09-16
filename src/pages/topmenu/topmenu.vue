@@ -1,9 +1,6 @@
 <template #headline>
   <div class="topmenu">
     <div class="rightBlock">
-      <!-- <router-link class="icon-right" to="/stories">
-        <icon name="logo" />
-      </router-link> -->
       <button class="icon-right">
         <icon name="logo" />
       </button>
@@ -15,9 +12,9 @@
       <button class="avatar">
         <img src="https://via.placeholder.com/300/300" class="img" alt="username avatar">
       </button>
-      <button class="icon-left">
+      <router-link to="/auth" class="icon-left">
         <icon name="back" />
-      </button>
+      </router-link>
     </div>
   </div>
 </template>

@@ -17,11 +17,12 @@
   <div class="comments" v-if="shown">
     <ul class="comments-list">
       <li class="comments-item" v-for="n in 5" :key="n">
-        <comment text="Some text" username="John Doe"/>
+        <comment :text="feed.issues_url" :username="feed.name"/>
       </li>
     </ul>
   </div>
   <div class="dateInfo">15 MAY</div>
+  <span>{{ feed.issues_url }}</span>
 </template>
 
 <script>
@@ -48,6 +49,7 @@
     },
     data () {
       return {
+
         shown: false
       }
     },
@@ -57,6 +59,7 @@
       }
     }
   }
+
 </script>
 
 <style lang="scss" scoped src="./feed.scss"></style>

@@ -30,7 +30,21 @@
     methods: {
       ...mapActions({
         fetchTrendings: 'trendings/fetchTrendings'
-      })
+      }),
+      async getUser () {
+        const token = localStorage.getItem('token')
+        try {
+          const responce = await fetch('https://api.github.com/user', {
+            headers: {
+              Authorization: `token ${token}`
+            }
+          })
+          const data = await responce.json()
+          console.log(data)
+        } catch (e) {
+          console.log(e)
+        }
+      }
     },
     computed: {
       ...mapGetters({
